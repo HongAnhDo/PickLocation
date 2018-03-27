@@ -77,10 +77,9 @@ class InputPlaceBottom extends Component {
         });
       })
       .catch(error => {
-        console.log('Geocode Error', error); // eslint-disable-line no-console
+        console.log('Geocode Error', error); 
         this.setState({
-          // geocodeResults: this.renderGeocodeFailure(error),
-          loading: false,
+           loading: false,
         });
       });
   }

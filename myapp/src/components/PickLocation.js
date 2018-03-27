@@ -20,7 +20,7 @@ class PickLocation extends Component {
       idPlacePickUp: "",
       addressDrop: "",
       idPlaceDrop: "",
-      isDisplayMap : false,
+      isDisplayMap: false,
       typePlace: 1
     }
     this.onSelectPlacePickUp = this.onSelectPlacePickUp.bind(this);
@@ -48,12 +48,12 @@ class PickLocation extends Component {
     reactLocalStorage.set(VarConf.pick_local.idPlaceDrop, idPlace);
   }
 
-  _selectMap(){
-      this.setState({isDisplayMap: true})
+  _selectMap() {
+    this.setState({ isDisplayMap: true })
   }
 
-  selectPlaceMap(address, idPlace){
-    if(this.state.typePlace == 1){
+  selectPlaceMap(address, idPlace) {
+    if (this.state.typePlace == 1) {
 
     }
   }
@@ -68,7 +68,7 @@ class PickLocation extends Component {
     return (
       <div className="containerPickLocation">
         <div className="containerSelectPlace">
-          <div className="selectPlace" disabled = {this.state.isDisplayMap} onClick = {false}>
+          <div className="selectPlace" disabled={this.state.isDisplayMap} onClick={false}>
             <div className="containerLeft">
 
               <i className="zmdi zmdi-pin-account" style={{ height: 'auto', width: 'auto', color: blue500, fontSize: '18px', paddingLeft: '20%' }}></i>
@@ -77,35 +77,21 @@ class PickLocation extends Component {
 
             </div>
 
-            {/* <InputPlaceTop onSelectPlace={this.onSelectPlacePickUp} isDisable = {this.state.isDisplayMap} hintTextInput="Điểm đón" />
-            <InputPlaceBottom onSelectPlace={this.onSelectPlaceDrop} isDisable = {this.state.isDisplayMap} hintTextInput="Điểm đến" /> */}
-
             <InputPlaceTop onSelectPlace={this.onSelectPlacePickUp} hintTextInput="Điểm đón" />
             <InputPlaceBottom onSelectPlace={this.onSelectPlaceDrop} hintTextInput="Điểm đến" />
 
           </div>
 
         </div>
-        <div className="containerSecond" onClick = {this._selectMap.bind(this)}>
+        <div className="containerSecond" onClick={this._selectMap.bind(this)}>
           <div className="containerSecondCenter" >
             <i className="zmdi zmdi-pin-drop" style={{ height: '20px', width: 'auto', marginTop: '6px' }}></i>
             <span className="textSelect">Chọn địa điểm trên bản đồ</span>
           </div>
 
-        
-
-        {/* </div>
-        {this.state.isDisplayMap && 
-        <MyMapComponent
-          />
-        }
-
-        { this.state.isDisplayMap && <div style ={{position: 'absolute',height: '30px', width:'80%', zIndex: 15,left:'10%',right:'10%', textAlign:'center', verticalAlign:'middle',lineHeight:'30px' ,bottom:'30px', backgroundColor:'#797979', 
-        borderRadius:'2px', boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.3)'}}>Hoàn tất</div>} */}
+        </div>
       </div>
-      <div>{reactLocalStorage.get(VarConf.pick_local.idPlaceDrop)}</div>
-      </div>
-     
+
 
     );
   }

@@ -375,7 +375,7 @@ class PlacesAutocomplete extends Component {
         className={this.classNameFor('root')}
       >
         <form className="group" {...inputProps}>
-          <input className="inputMaterial" type="text" disabled = {this.props.isDisable} required value={this.state.userInputValue} {...inputProps.onChange} />
+          <input className="inputMaterial" type="search" disabled = {this.props.isDisable} required value={this.state.userInputValue} {...inputProps.onChange} />
           {!this.state.userInputValue && <label >{hintTextInput}</label>}
           <div className="bar"></div>
 
