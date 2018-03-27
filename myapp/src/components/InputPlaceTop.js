@@ -136,6 +136,7 @@ class InputPlaceTop extends Component {
           shouldFetchSuggestions={shouldFetchSuggestions}
           hintTextInput={this.props.hintTextInput}
           onSelectPlace ={this.props.onSelectPlace}
+          focusSearch  = {this.props.focusInputSearch}
 
         />
 

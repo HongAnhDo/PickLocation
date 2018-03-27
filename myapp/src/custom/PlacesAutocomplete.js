@@ -363,6 +363,14 @@ class PlacesAutocomplete extends Component {
     });
   }
 
+  onFocusInputPlace = () => {
+    this.props.focusSearch(true);
+  }
+
+  onBlurInputPlace= () =>{
+    this.props.focusSearch(false);
+  }
+
   render() {
     const { autocompleteItems } = this.state;
     const inputProps = this.getInputProps();
@@ -375,7 +383,8 @@ class PlacesAutocomplete extends Component {
         className={this.classNameFor('root')}
       >
         <form className="group" {...inputProps}>
-          <input className="inputMaterial" type="search" disabled = {this.props.isDisable} required value={this.state.userInputValue} {...inputProps.onChange} />
+          <input className="inputMaterial" type="search" disabled = {this.props.isDisable} required  onFocus = {this.onFocusInputPlace} onBlur = {this.onBlurInputPlace}
+          value={this.state.userInputValue} {...inputProps.onChange} />
           {!this.state.userInputValue && <label >{hintTextInput}</label>}
           <div className="bar"></div>
 

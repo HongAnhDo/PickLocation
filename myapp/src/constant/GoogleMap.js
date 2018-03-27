@@ -1,11 +1,9 @@
 import React from "react"
 import { compose, withProps, lifecycle } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 import { GOOGLE_JSON } from "./GoogleJson"
-import ReactDOM from 'react-dom';
-import ic_person from '../images/ic_person.png'
 import '../styles/GoogleMap.css'
-/*global google*/
+
 const heightView = window.innerHeight - 135;
 
 const MyMapComponent = compose(
