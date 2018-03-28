@@ -34,25 +34,21 @@ class PickLocation extends Component {
       addressPickUp: address,
       idPlacePickUp: idPlace
     });
-
-    // reactLocalStorage.set(VarConf.pick_local.addressPickUp, address);
-    // reactLocalStorage.set(VarConf.pick_local.idPlacePickUp, idPlace);
-    localStorage.setItem('address', address);
-    localStorage.setItem('idPlace', idPlace);
+    localStorage.setItem('addressPickUp', address);
+    localStorage.setItem('idPlacePickUp', idPlace);
 
   }
 
   onSelectPlaceDrop(address, idPlace) {
-    // reactLocalStorage.set(VarConf.pick_local.addressDrop, address);
-    // reactLocalStorage.set(VarConf.pick_local.idPlaceDrop, idPlace);
-  
 
-    // this.setState({
-    //   addressDrop: address,
-    //   idPlaceDrop: idPlace,
-    // });
+    this.setState({
+      addressDrop: address,
+      idPlaceDrop: idPlace,
+    });
 
-    
+    localStorage.setItem('addressDrop', address);
+    localStorage.setItem('idPlaceDrop', idPlace);
+
   }
 
   _selectMap() {
@@ -94,11 +90,9 @@ class PickLocation extends Component {
           </div>
 
         </div>
-        <div className="containerSecond" onClick={this._selectMap.bind(this)}>
+        
+        <div className="containerSecond" onClick={this._selectMap.bind(this)}></div>
 
-
-        </div>
-        <div>{localStorage.getItem('address')}+  {localStorage.getItem('idPlace')} </div>
         {!this.state.isFocus && <div style={{
           position: 'absolute', height: '30px', width: '80%', zIndex: 15, left: '10%', right: '10%', textAlign: 'center', verticalAlign: 'middle', lineHeight: '30px', bottom: '30px', backgroundColor: '#797979',
           borderRadius: '2px', boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.3)', color: '#fff'
