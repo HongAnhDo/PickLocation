@@ -6,12 +6,12 @@ import InputPlaceBottom from './InputPlaceBottom'
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 import '../styles/PickLocation.css'
 import { blue500 } from 'material-ui/styles/colors'
-import { reactLocalStorage } from 'reactjs-localstorage';
 import VarConf from '../localstorage/VarConf'
 import MyMapComponent from '../constant/GoogleMap'
 
 
 class PickLocation extends Component {
+  myStorage = window.localStorage;
   constructor(props) {
     super(props)
     this.state = {
@@ -35,18 +35,24 @@ class PickLocation extends Component {
       idPlacePickUp: idPlace
     });
 
-    reactLocalStorage.set(VarConf.pick_local.addressPickUp, address);
-    reactLocalStorage.set(VarConf.pick_local.idPlacePickUp, idPlace);
+    // reactLocalStorage.set(VarConf.pick_local.addressPickUp, address);
+    // reactLocalStorage.set(VarConf.pick_local.idPlacePickUp, idPlace);
+    localStorage.setItem('address', address);
+    localStorage.setItem('idPlace', idPlace);
+
   }
 
   onSelectPlaceDrop(address, idPlace) {
-    this.setState({
-      addressDrop: address,
-      idPlaceDrop: idPlace,
-    });
+    // reactLocalStorage.set(VarConf.pick_local.addressDrop, address);
+    // reactLocalStorage.set(VarConf.pick_local.idPlaceDrop, idPlace);
+  
 
-    reactLocalStorage.set(VarConf.pick_local.addressDrop, address);
-    reactLocalStorage.set(VarConf.pick_local.idPlaceDrop, idPlace);
+    // this.setState({
+    //   addressDrop: address,
+    //   idPlaceDrop: idPlace,
+    // });
+
+    
   }
 
   _selectMap() {
@@ -92,6 +98,7 @@ class PickLocation extends Component {
 
 
         </div>
+        <div>{localStorage.getItem('address')}+  {localStorage.getItem('idPlace')} </div>
         {!this.state.isFocus && <div style={{
           position: 'absolute', height: '30px', width: '80%', zIndex: 15, left: '10%', right: '10%', textAlign: 'center', verticalAlign: 'middle', lineHeight: '30px', bottom: '30px', backgroundColor: '#797979',
           borderRadius: '2px', boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.3)', color: '#fff'
